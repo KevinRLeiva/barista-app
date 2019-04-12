@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../img/pokemonbackground.jpg');
+  background-size: cover;
+}
+
+section {
+  margin-left: 20%;
+  height: 150px;
+  width: 60%;
+  background-color: white;
+  text-align: center;
+}
