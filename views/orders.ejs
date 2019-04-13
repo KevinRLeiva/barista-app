@@ -31,15 +31,14 @@
         <% for(let i=0; i< orders.length; i++){ %>
           <% if(orders[i].complete === true){ %>
             <li>
-              <span  name="speech-msg" id="speech-msg" x-webkit-speech><%= orders[i].order %></span>
-              <span  name="speech-msg" id="speech-msg" x-webkit-speech ><%= orders[i].custName %></span>
-              <span ><%= orders[i].barista %></span>
+              <span><%= orders[i].order %></span>
+              <span><%= orders[i].custName %></span>
+              <span><%= orders[i].barista %></span>
             </li>
         <%}%>
       <%}%>
       </ul>
     </section>
-    <script type="text/javascript" src="speech.js"></script>
   <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
