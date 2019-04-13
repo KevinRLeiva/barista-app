@@ -22,8 +22,8 @@
           <% for(let i=0; i< orders.length; i++){ %>
             <%  if(orders[i].complete === false){ %>
               <li>
-                <span><%= orders[i].order %></span>
-                <span><%= orders[i].custName %></span>
+                <span><%= `Customer Order: ${orders[i].order}` %></span>
+                <span><%= `Customer Name: ${orders[i].custName}` %></span>
                 <span><input class="checkBox" type="checkbox" name="complete"></span>
               </li>
               <%}%>
@@ -37,9 +37,9 @@
               <% for(let i=0; i< orders.length; i++){ %>
                 <% if(orders[i].complete === true){ %>
                   <li>
-                    <span><%= orders[i].order %></span>
-                    <span><%= orders[i].custName %></span>
-                    <span><%= orders[i].barista %></span>
+                    <span><%= `Customer Order: ${orders[i].order}` %></span>
+                    <span><%= `Customer Name: ${orders[i].custName}` %></span>
+                    <span><%= `Barista Completed: ${orders[i].barista}` %></span>
                   </li>
                   <%}%>
                   <%}%>
