@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Orders</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-      <h1>Orders</h1>
-    </header>
-    <section>
+<head>
+  <meta charset="utf-8">
+  <title>Orders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Orders</h1>
+  </header>
+  <section>
+    <div class="">
       <% if (user.local.email) { %>
-                    <p><strong>email</strong>: <%= user.local.email %></p>
-                <% } %>
+        <p id="baristaName"><strong>Logged Barista</strong>: <%= user.local.email %></p>
+        <% } %>
+      </div>
       <!-- list for in progress orders -->
-      <ul>
-        <% for(let i=0; i< orders.length; i++){ %>
-        <%  if(orders[i].complete === false){ %>
-            <li>
-              <span><%= orders[i].order %></span>
-              <span><%= orders[i].custName %></span>
-              <span><input class="checkBox" type="checkbox" name="complete"></span>
-            </li>
-        <%}%>
-      <%}%>
-      </ul>
-
-      <!-- list for completed orders -->
-      <ul>
-        <% for(let i=0; i< orders.length; i++){ %>
-          <% if(orders[i].complete === true){ %>
-            <li>
-              <span><%= orders[i].order %></span>
-              <span><%= orders[i].custName %></span>
-              <span><%= orders[i].barista %></span>
-            </li>
-        <%}%>
-      <%}%>
-      </ul>
-    </section>
-  <script type="text/javascript" src="main.js"></script>
-  </body>
-</html>
+      <div class="">
+        <h3><strong>Orders In Progress</strong></h3>
+        <ul>
+          <% for(let i=0; i< orders.length; i++){ %>
+            <%  if(orders[i].complete === false){ %>
+              <li>
+                <span><%= orders[i].order %></span>
+                <span><%= orders[i].custName %></span>
+                <span><input class="checkBox" type="checkbox" name="complete"></span>
+              </li>
+              <%}%>
+              <%}%>
+            </ul>
+          </div>
+          <!-- list for completed orders -->
+          <div class="">
+            <h3>Completed Orders</h3>
+            <ul>
+              <% for(let i=0; i< orders.length; i++){ %>
+                <% if(orders[i].complete === true){ %>
+                  <li>
+                    <span><%= orders[i].order %></span>
+                    <span><%= orders[i].custName %></span>
+                    <span><%= orders[i].barista %></span>
+                  </li>
+                  <%}%>
+                  <%}%>
+                </ul>
+              </div>
+            </section>
+            <script type="text/javascript" src="main.js"></script>
+          </body>
+          </html>
