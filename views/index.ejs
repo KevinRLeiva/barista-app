@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Barista App</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -9,9 +10,10 @@
     <h1>Cashier</h1>
   </header>
   <section>
+    <a href="/login"><i class="fas fa-sign-in-alt"></i></a>
 
     <!-- creates documents -->
-    <form class="" action="/order" method="post">
+    <form class="" action="/orders" method="post">
       <input type="text" name="order" placeholder="type in order">
       <input type="text" name="custName" placeholder="type in customer name">
       <button type="submit" name="button">Submit Order</button>

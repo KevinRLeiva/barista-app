@@ -15,12 +15,12 @@
                 <% } %>
       <!-- list for in progress orders -->
       <ul>
-        for(let i=0; i< orders.length; i++){
-          if(orders[i].complete === false){
+        <% for(let i=0; i< orders.length; i++){ %>
+        <%  if(orders[i].complete === false){ %>
             <li>
-              <span><%= document[i].order %></span>
-              <span><%= document[i].custName %></span>
-              <span>checkbox</span>
+              <span><%= orders[i].order %></span>
+              <span><%= orders[i].custName %></span>
+              <span><input type="checkbox" name="complete"></span>
             </li>
         <%}%>
       <%}%>
@@ -28,12 +28,12 @@
 
       <!-- list for completed orders -->
       <ul>
-        for(let i=0; i< orders.length; i++){
-          if(orders[i].complete === true){
+        <% for(let i=0; i< orders.length; i++){ %>
+          <% if(orders[i].complete === true){ %>
             <li>
-              <span><%= document[i].order %></span>
-              <span><%= document[i].custName %></span>
-              <span><%= document[i].barista %></span>
+              <span><%= orders[i].order %></span>
+              <span><%= orders[i].custName %></span>
+              <span><%= orders[i].barista %></span>
             </li>
         <%}%>
       <%}%>
