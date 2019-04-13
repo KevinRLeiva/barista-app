@@ -39,7 +39,7 @@ module.exports = function(app, passport, db) {
     })
   })
   //updates status of order selected and barista name
-  app.put('/orders', (req, res) => {
+  app.put('/checkBox', (req, res) => {
     db.collection('orders')
     .findOneAndUpdate({order: req.body.order, custName: req.body.custName}, {
       $set: {

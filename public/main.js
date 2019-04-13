@@ -1,32 +1,43 @@
-document.querySelector("button").addEventListener("click", pickOne);
+var checkBox = document.getElementsByClassName("checkBox");
+var trash = document.getElementsByClassName("fa-times-circle");
 
-function pickOne() {
-  let pokemon = document.getElementById("pokemon").value;
-  let error = document.getElementById('error')
+Array.from(checkBox).forEach(function(element) {
+      element.addEventListener('click', function(){
+        const order = this.parentNode.parentNode.childNodes[1].innerText
+        const custName = this.parentNode.parentNode.childNodes[3].innerText
+        fetch('checkBox', {
+          method: 'put',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            'custName': custName,
+            'order': order
+          })
+        })
+        .then(response => {
+          if (response.ok) return response.json()
+        })
+        .then(data => {
+          console.log(data)
+          window.location.reload(true)
+        })
+      });
+});
 
-  let apiURL =
-    "https://pokeapi.co/api/v2/pokemon/" + pokemon;
-  fetch(apiURL)
-    .then(res => res.json()) // parse response as JSON (can be res.text() for plain response)
-    .then(response => {
-      console.log(response);
-
-      document.querySelector("#name").innerHTML = response.species.name;
-      document.querySelector("#ability").innerHTML = response.abilities[0].ability.name;
-      document.querySelector("#sprite").src = response.sprites.front_default;
-      document.querySelector("#version").innerHTML = response.game_indices[4].version.name;
-
-      console.log(response.species.name);
-      console.log(response.abilities[0].ability.name);
-      console.log(response.sprites.front_default);
-      console.log(response.game_indices[4].version.name);
-    })
-
-    .catch(err => {
-      console.log(`error ${err}`);
-      error.innerHTML = '';
-      let errorMsg = "We're sorry! We can't find the description for this one."
-      error.innerHTML = errorMsg;
-      alert(errorMsg);
-    });
-}
+Array.from(trash).forEach(function(element) {
+      element.addEventListener('click', function(){
+        const order = this.parentNode.parentNode.childNodes[1].innerText
+        const custName = this.parentNode.parentNode.childNodes[3].innerText
+        fetch('orders', {
+          method: 'delete',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'custName': custName,
+            'order': order
+          })
+        }).then(function (response) {
+          window.location.reload()
+        })
+      });
+});
