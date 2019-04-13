@@ -10,11 +10,33 @@
       <h1>Orders</h1>
     </header>
     <section>
+      <% if (user.local.email) { %>
+                    <p><strong>email</strong>: <%= user.local.email %></p>
+                <% } %>
+      <!-- list for in progress orders -->
       <ul>
-        
-        <li>
+        for(let i=0; i< orders.length; i++){
+          if(orders[i].complete === false){
+            <li>
+              <span><%= document[i].order %></span>
+              <span><%= document[i].custName %></span>
+              <span>checkbox</span>
+            </li>
+        <%}%>
+      <%}%>
+      </ul>
 
-        </li>
+      <!-- list for completed orders -->
+      <ul>
+        for(let i=0; i< orders.length; i++){
+          if(orders[i].complete === true){
+            <li>
+              <span><%= document[i].order %></span>
+              <span><%= document[i].custName %></span>
+              <span><%= document[i].barista %></span>
+            </li>
+        <%}%>
+      <%}%>
       </ul>
     </section>
   <script type="text/javascript" src="js/main.js"></script>

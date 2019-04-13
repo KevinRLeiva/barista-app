@@ -10,22 +10,22 @@
   </header>
   <section>
 
-    //creates documents
+    <!-- creates documents -->
     <form class="" action="/order" method="post">
       <input type="text" name="order" placeholder="type in order">
       <input type="text" name="custName" placeholder="type in customer name">
       <button type="submit" name="button">Submit Order</button>
     </form>
 
-    //renders orders list
+    <!-- renders orders list -->
     <ul>
-      <%= for(let i=0; i< orders.length; i++) {%>
+      <% for(let i=0; i< orders.length; i++) {%>
       <li>
-        <span><%= document[i].order %></span>
-        <span><%= document[i].custName %></span>
+        <span><%= orders[i].order %></span>
+        <span><%= orders[i].custName %></span>
         <span><i class="far fa-times-circle"></i></span>
       </li>
-    <% } %>
+    <%}%>
     </ul>
   </section>
 </body>

@@ -4,7 +4,12 @@ module.exports = function(app, passport, db) {
 
       // show the home page (will also have our login links)
       app.get('/', function(req, res) {
-          res.render('index.ejs');
+        db.collection('orders').find().toArray((err, result) => {
+          if (err) return console.log(err)
+          res.render('index.ejs', {
+              orders: result
+          })
+        })
       });
 
       // PROFILE SECTION =========================
