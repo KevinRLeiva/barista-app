@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Orders</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Orders</h1>
+    </header>
+    <section>
+      <% if (user.local.email) { %>
+                    <p><strong>email</strong>: <%= user.local.email %></p>
+                <% } %>
+      <!-- list for in progress orders -->
+      <ul>
+        <% for(let i=0; i< orders.length; i++){ %>
+        <%  if(orders[i].complete === false){ %>
+            <li>
+              <span><%= orders[i].order %></span>
+              <span><%= orders[i].custName %></span>
+              <span><input type="checkbox" name="complete"></span>
+            </li>
+        <%}%>
+      <%}%>
+      </ul>
+
+      <!-- list for completed orders -->
+      <ul>
+        <% for(let i=0; i< orders.length; i++){ %>
+          <% if(orders[i].complete === true){ %>
+            <li>
+              <span><%= orders[i].order %></span>
+              <span><%= orders[i].custName %></span>
+              <span><%= orders[i].barista %></span>
+            </li>
+        <%}%>
+      <%}%>
+      </ul>
+    </section>
+  <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
